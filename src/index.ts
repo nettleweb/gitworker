@@ -20,6 +20,8 @@ async function handleFetch(req: Request): Promise<Response> {
 
 	const path = url.pathname;
 	switch (path) {
+		case "/":
+			return new Response(MSG_301, { status: 301, headers: { "Content-Type": "text/plain", "Location": "https://github.com/nettleweb" }, encodeBody: "manual" });
 		case "/robots.txt":
 			return new Response(robotstxt, { status: 200, headers: { "Content-Type": "text/plain" }, encodeBody: "manual" });
 		case "/favicon.ico":
